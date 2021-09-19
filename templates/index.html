@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container" style="width:60%;">
+        <h2 class="text-center my-2">Car Price prediction</h2>
+        <br>
+        <h4 class="text-center my-2">{{ prediction_text }}</h4>
+        <form action="{{ url_for('predict')}}" method="post">
+            <div class="mb-3">
+                <label for="first" class="form-label">Year</label>
+                <input id="first" name="Year" type="number" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="Present_Price" class="form-label">Showroom Price In lakhs</label>
+                <input id="second" name="Present_Price" required="required" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="Kms_Driven" class="form-label">Kilometers Drived</label>
+                <input id="third" name="Kms_Driven" required="required" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="Owner" class="form-label">Number of Owners having this car</label>
+                <select name="Owner" id="fourth" required="required" class="form-control">
+                    <option value=0>0</option>
+                    <option value=1>1</option>
+                    <option value=3>3</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="Fuel_Type_Petrol" class="form-label">Fuel Type</label>
+                <select name="Fuel_Type_Petrol" id="fuel" required="required" class="form-control">
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Diesel">CNG</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="Seller_Type_Individual" class="form-label">Dealer or Individual</label>
+                <select name="Seller_Type_Individual" id="resea" required="required" class="form-control">
+                    <option value="Dealer">Dealer</option>
+                    <option value="Individual">Individual</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="Transmission_Mannual" class="form-label">Transmission type</label>
+                <select name="Transmission_Mannual" id="research" required="required" class="form-control">
+                    <option value="Mannual">Manual Car</option>
+                    <option value="Automatic">Automatic Car</option>
+                </select>
+            </div>
+            <br>
+            <button class="btn btn-primary" type="submit ">Calculate the Selling Price</button>
+            <br>
+        </form>
+    </div>
+
+    <style>
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+    </style>
+</body>
+
+</html>
